@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lens Outlet Extender — Plus de prises, zéro travaux</title>
+  <meta name="description" content="Lens Outlet Extender : multipliez vos prises en toute sécurité, sans électricien. Livraison rapide." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f172a; --card:#111827; --text:#e5e7eb; --muted:#9ca3af;
+      --primary:#22c55e; --primary-dark:#16a34a; --accent:#38bdf8; --danger:#ef4444;
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.2rem;border-radius:12px;font-weight:700}
+    .btn-primary{background:var(--primary);color:#062b12;box-shadow:var(--shadow)}
+    .btn-primary:hover{background:var(--primary-dark)}
+    .btn-outline{border:1px solid #334155;color:var(--text)}
+    header{position:sticky;top:0;background:rgba(15,23,42,.7);backdrop-filter:saturate(180%) blur(10px);z-index:50;border-bottom:1px solid #1f2937}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .nav .brand{display:flex;align-items:center;gap:.6rem;font-weight:700}
+    .nav .links{display:flex;gap:1rem}
+    .badge{display:inline-block;background:#0ea5e9;color:#042638;padding:.35rem .6rem;border-radius:999px;font-weight:700;font-size:.8rem}
+    .hero{padding:60px 0 30px;border-bottom:1px solid #1f2937}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+    .hero h1{font-size:clamp(28px,4vw,44px);line-height:1.1;margin:0 0 10px}
+    .hero p{color:var(--muted);font-size:1.05rem}
+    .hero .card{background:linear-gradient(180deg,#0b1220,#0a0f1a);border:1px solid #1f2937;border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+    .price{display:flex;align-items:baseline;gap:.6rem;margin-top:10px}
+    .price .now{font-size:2rem;font-weight:800;color:var(--primary)}
+    .price .old{color:#64748b;text-decoration:line-through}
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:18px}
+    .kpi{background:#0b1220;border:1px solid #1f2937;border-radius:12px;padding:14px;text-align:center}
+    .section{padding:50px 0;border-bottom:1px solid #1f2937}
+    .section h2{font-size:clamp(22px,3vw,32px);margin:0 0 10px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .feature{background:#0b1220;border:1px solid #1f2937;border-radius:14px;padding:16px}
+    .feature h3{margin:0 0 6px;font-size:1.05rem}
+    .muted{color:var(--muted)}
+    .demo{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .card{background:#0b1220;border:1px solid #1f2937;border-radius:14px;padding:16px}
+    .list{display:grid;gap:10px}
+    .list li{list-style:none;display:flex;gap:.6rem;align-items:flex-start}
+    .check{color:var(--primary);font-weight:900}
+    .x{color:var(--danger);font-weight:900}
+    .testi{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .faq{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .faq .q{background:#0b1220;border:1px solid #1f2937;border-radius:12px;padding:14px}
+    .cta{padding:40px 0}
+    .footer{padding:30px 0;color:#94a3b8}
+    .pill{display:inline-block;border:1px dashed #334155;border-radius:999px;padding:.4rem .7rem;font-size:.9rem}
+    .input{width:100%;padding:.9rem;border-radius:10px;border:1px solid #334155;background:#0b1220;color:var(--text)}
+    .form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .form .full{grid-column:1/-1}
+    .note{font-size:.9rem;color:#94a3b8}
+    @media (max-width:900px){
+      .hero-grid,.demo,.faq,.testi{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr 1fr}
+      .kpis{grid-template-columns:1fr 1fr}
+      .nav .links{display:none}
+    }
+    @media (max-width:560px){
+      .grid-3{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="#22c55e" aria-hidden="true"><path d="M12 2l4 4-4 4-4-4 4-4zm0 8l4 4-4 4-4-4 4-4z"/></svg>
+        <span>Lens Outlet Extender</span>
+      </div>
+      <nav class="links">
+        <a href="#features">Bénéfices</a>
+        <a href="#demo">Démonstration</a>
+        <a href="#avis">Avis</a>
+        <a href="#faq">FAQ</a>
+        <a href="#acheter" class="btn btn-outline">Acheter</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge">Nouveau — Stock limité</span>
+        <h1>Plus de prises, zéro travaux. Sécurisé, compact, élégant.</h1>
+        <p>Transformez une prise murale en un hub intelligent avec protection surtension, ports USB, et support téléphone. Installation en 10 secondes.</p>
+        <div class="price">
+          <span class="now">HTG 2 450</span>
+          <span class="old">HTG 3 200</span>
+          <span class="pill">Livraison Jacmel & Port‑au‑Prince</span>
+        </div>
+        <div style="margin-top:16px;display:flex;gap:10px">
+          <a href="#acheter" class="btn btn-primary">Acheter maintenant</a>
+          <a href="#features" class="btn btn-outline">Voir les bénéfices</a>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><strong>3×</strong><div class="muted">Plus de prises</div></div>
+          <div class="kpi"><strong>2× USB</strong><div class="muted">Charge rapide</div></div>
+          <div class="kpi"><strong>Jusqu’à 1875W</strong><div class="muted">Puissance max</div></div>
+          <div class="kpi"><strong>Protection</strong><div class="muted">Surtension & enfants</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop" alt="Outlet extender sur mur moderne">
+        <div class="muted" style="margin-top:8px">Image d’illustration — remplace par ta photo produit</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="section">
+    <div class="container">
+      <h2>Bénéfices clés</h2>
+      <p class="muted">Pensé pour les appartements, bureaux, studios et ateliers—sans perçage ni électricien.</p>
+      <div class="grid-3">
+        <div class="feature">
+          <h3>Installation instantanée</h3>
+          <p>Se clipse sur la prise existante. Stable, sans jeu, compatible prises standards.</p>
+        </div>
+        <div class="feature">
+          <h3>Sécurité intégrée</h3>
+          <p>Protection contre surtension, obturateurs enfants, matériaux ignifuges.</p>
+        </div>
+        <div class="feature">
+          <h3>Charge universelle</h3>
+          <p>2× USB‑A + 1× USB‑C (option), support téléphone, LED discrète.</p>
+        </div>
+        <div class="feature">
+          <h3>Design compact</h3>
+          <p>Profil mince, passe derrière meubles, finition mate anti‑traces.</p>
+        </div>
+        <div class="feature">
+          <h3>Puissance fiable</h3>
+          <p>Jusqu’à 1875W—parfait pour PC, TV, routeurs, petits électroménagers.</p>
+        </div>
+        <div class="feature">
+          <h3>Garantie 12 mois</h3>
+          <p>Échange simple en cas de défaut. Support client réactif.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo / Comparatif -->
+  <section id="demo" class="section">
+    <div class="container demo">
+      <div class="card">
+        <h2>Avant / Après</h2>
+        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop" alt="Avant / Après outlet extender">
+        <ul class="list" style="margin-top:12px">
+          <li><span class="check">✔</span><span>Plus de ports sans multiprise au sol</span></li>
+          <li><span class="check">✔</span><span>Gestion câbles propre et verticale</span></li>
+          <li><span class="check">✔</span><span>Protection électrique intégrée</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Comparatif rapide</h2>
+        <ul class="list">
+          <li><span class="check">✔</span><span>Outlet Extender Pro — compact, sécurisé, USB inclus</span></li>
+          <li><span class="x">✖</span><span>Multiprise classique — encombrante, traîne au sol</span></li>
+          <li><span class="x">✖</span><span>Adaptateurs basiques — sans protection ni fixation stable</span></li>
+        </ul>
+        <div style="margin-top:12px">
+          <a href="#acheter" class="btn btn-primary">Je choisis Pro</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Avis -->
+  <section id="avis" class="section">
+    <div class="container">
+      <h2>Avis clients</h2>
+      <div class="testi">
+        <div class="card">
+          <p>“Installation en 5 secondes. Mon bureau est enfin propre.”</p>
+          <div class="muted">— Marie, Jacmel</div>
+        </div>
+        <div class="card">
+          <p>“La protection surtension m’a rassuré pour mon PC.”</p>
+          <div class="muted">— Jean, PAP</div>
+        </div>
+        <div class="card">
+          <p>“USB‑C pratique pour mon téléphone, plus besoin de bloc.”</p>
+          <div class="muted">— Louna, Cap‑Haïtien</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="container faq">
+      <div class="q">
+        <h3>Compatibilité des prises ?</h3>
+        <p class="muted">Compatible avec la majorité des prises murales standards. Vérifie la forme et la tension locale avant achat.</p>
+      </div>
+      <div class="q">
+        <h3>Puissance maximale ?</h3>
+        <p class="muted">Jusqu’à 1875W cumulés. Évite les appareils très énergivores simultanés (chauffage, micro‑ondes).</p>
+      </div>
+      <div class="q">
+        <h3>Garantie et retours</h3>
+        <p class="muted">Garantie 12 mois. Retours sous 7 jours si le produit est neuf et complet.</p>
+      </div>
+      <div class="q">
+        <h3>Livraison</h3>
+        <p class="muted">Jacmel, Port‑au‑Prince et principales villes. 24–72h selon zone.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / Paiement -->
+  <section id="acheter" class="cta">
+    <div class="container card">
+      <h2>Prêt à commander ?</h2>
+      <p class="muted">Choisis ta quantité et valide. Nous confirmons par message.</p>
+      <form class="form" onsubmit="return submitOrder(event)">
+        <div>
+          <label for="variant" class="muted">Modèle</label>
+          <select id="variant" class="input">
+            <option>Pro (3 prises + 2× USB‑A)</option>
+            <option>Pro+ (3 prises + USB‑A + USB‑C)</option>
+          </select>
+        </div>
+        <div>
+          <label for="qty" class="muted">Quantité</label>
+          <input id="qty" type="number" min="1" value="1" class="input" />
+        </div>
+        <div class="full">
+          <label for="name" class="muted">Nom complet</label>
+          <input id="name" type="text" class="input" placeholder="Ex. Lens Pétiote" required />
+        </div>
+        <div>
+          <label for="phone" class="muted">Téléphone (WhatsApp)</label>
+          <input id="phone" type="tel" class="input" placeholder="+509 ..." required />
+        </div>
+        <div>
+          <label for="city" class="muted">Ville</label>
+          <input id="city" type="text" class="input" placeholder="Jacmel" required />
+        </div>
+        <div class="full">
+          <button class="btn btn-primary" type="submit">Valider la commande</button>
+          <a class="btn btn-outline" href="https://wa.me/50944197186?text=Bonjour%20Monsieur%20Lens%20Sandro%20Je%20veux%20Outlet%20Extender%20Pro" target="_blank" rel="noopener">Commander via WhatsApp</a>
+        </div>
+        <div class="full note">En validant, vous acceptez nos conditions de vente et de livraison.</div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <div>© 2026 Outlet Extender Pro</div>
+        <div style="display:flex;gap:12px">
+          <a href="#">Conditions</a>
+          <a href="#">Confidentialité</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function submitOrder(e){
+      e.preventDefault();
+      const variant = document.getElementById('variant').value;
+      const qty = parseInt(document.getElementById('qty').value || '1', 10);
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const city = document.getElementById('city').value.trim();
+
+      if(!name || !phone || !city || qty < 1){
+        alert('Merci de compléter tous les champs.');
+        return false;
+      }
+
+      // Exemple : envoi vers WhatsApp avec message prérempli
+      const msg = encodeURIComponent(
+        `Commande Outlet Extender\n` +
+        `Modèle: ${variant}\nQuantité: ${qty}\nNom: ${name}\nTéléphone: ${phone}\nVille: ${city}`
+      );
+      const wa = `https://wa.me/50944197186?text=${msg}`; // Remplace par ton numéro WhatsApp
+      window.open(wa, '_blank');
+
+      // Optionnel: envoi vers un endpoint (si tu as un backend)
+      // fetch('/api/order', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({variant, qty, name, phone, city})})
+
+      return false;
+    }
+  </script>
+</body>
+</html>
